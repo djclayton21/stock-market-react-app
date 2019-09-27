@@ -1,10 +1,10 @@
 import React from 'react';
 import './style.css'
 
-const StockDetails = () => {
+const StockDetails = (props) => {
     return ( 
         <div className="stock-details">
-            Details
+            Details: {props.match.params.symbol}
         </div>
      );
 }

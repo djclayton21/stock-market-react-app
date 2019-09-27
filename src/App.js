@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component} from 'react';
 import { Route , Switch} from 'react-router-dom'
 import './style.css';
 
@@ -8,21 +8,28 @@ import Home from './components/home/Home.js';
 import About from './components/about/About.js';
 import SearchPage from './components/search/SearchPage.js';
 import StockDetails from './components/details/StockDetails.js';
+import { withStockData } from './context/StockDataProvider';
 
 
-const App = () => {
-    return ( 
-        <div className="app">
-            <Navbar />
-            <Switch>
-                <Route exact path='/' component= {Home}/>
-                <Route path='/about' component={About}/>
-                <Route path='/search' component={SearchPage}/>
-                <Route path='/details' component={StockDetails}/>
-            </Switch>
-            <Footer />
-        </div>
-     );
+class App extends Component {
+    componentDidMount(){
+        this.props.getGlobalData()
+    }
+
+    render() {
+        return ( 
+            <div className="app">
+                <Navbar />
+                <Switch>
+                    <Route exact path='/' component= {Home}/>
+                    <Route path='/about' component={About}/>
+                    <Route path='/search' component={SearchPage}/>
+                    <Route path='/details/:symbol' render={rProps => <StockDetails {...rProps} />}/>
+                </Switch>
+                <Footer />
+            </div>
+        );
+    }
 }
  
-export default App;
+export default withStockData(App);
