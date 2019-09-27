@@ -3,3 +3,13 @@
     margin: 1px;
     background: paleturquoise;
 }
+
+.stock-group {
+    border: 2px solid purple;
+    margin: 1px;
+}
+
+.market-overview {
+    border: 2px solid purple;
+    margin: 1px;
+}

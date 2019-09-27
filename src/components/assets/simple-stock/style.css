@@ -1,0 +1,7 @@
+.simple {
+    border: 2px solid red;
+    margin: 2px;
+    display: grid;
+    grid-template-columns: 40% 1fr 1fr 1fr 1fr;
+    font-size: 12px;
+}

@@ -1,14 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
-import './style.css'
+import './style.css';
+import StockGroup from './StockGroup.js';
+import MarketOverview from './MarketOverview.js';
+import { withStockData } from '../../context/StockDataProvider'
 
-const Home = () => {
+const Home = (props) => {
     return ( 
         <div className="home">
-            Home
-            <Link to= '/details/AAPL'>AAPL</Link>
-            <Link to= '/details/TSLA'>TSLA</Link>
+            <MarketOverview indexes = {props.indexes}/>
+            <StockGroup title='Biggest Gainers and Losers' stocks= {[...props.gainers, ...props.losers]} />
+            <StockGroup title='Most Popular' stocks= {props.losers} />
         </div> );
 }
  
-export default Home;
+export default withStockData(Home);

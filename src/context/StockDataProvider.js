@@ -19,15 +19,16 @@ class StockDataProvider extends Component {
         axios.get("https://financialmodelingprep.com/api/v3/majors-indexes")
             .then(res => {
                 this.setState({
-                    indexes: res.data.majorIndexesList
+                    indexes: res.data.majorIndexesList.slice(0, 3)
                 })
             })
             .catch(err =>console.log(err))
+        //crypto/bonds/gold?
         //gainers
         axios.get("https://financialmodelingprep.com/api/v3/stock/gainers")
             .then(res => {
                 this.setState({
-                    gainers: res.data.mostGainerStock
+                    gainers: res.data.mostGainerStock.slice(0, 3)
                 })
             })
             .catch(err =>console.log(err))
@@ -35,14 +36,13 @@ class StockDataProvider extends Component {
         axios.get("https://financialmodelingprep.com/api/v3/stock/losers")
             .then(res => {
                 this.setState({
-                    losers: res.data.mostLoserStock
+                    losers: res.data.mostLoserStock.slice(0, 3)
                 })
             })
             .catch(err =>console.log(err))
         //searchlist
         axios.get("https://financialmodelingprep.com/api/v3/company/stock/list")
             .then(res => {
-                console.dir(res.data)
                 this.setState({
                     searchList: res.data.symbolsList
                 })
