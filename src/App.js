@@ -13,8 +13,9 @@ import { withStockData } from './context/StockDataProvider';
 
 class App extends Component {
     componentDidMount(){
-        this.props.getGlobalData()
+        this.props.getSearchList()
     }
+
 
     render() {
         return ( 

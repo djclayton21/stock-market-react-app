@@ -14,7 +14,7 @@ class StockDataProvider extends Component {
         }
     }
 
-    getGlobalData = () => {
+    getGroupData = () => {
         //major idexes
         axios.get("https://financialmodelingprep.com/api/v3/majors-indexes")
             .then(res => {
@@ -40,6 +40,9 @@ class StockDataProvider extends Component {
                 })
             })
             .catch(err =>console.log(err))
+    }
+
+    getSearchList = () => {
         //searchlist
         axios.get("https://financialmodelingprep.com/api/v3/company/stock/list")
             .then(res => {
@@ -57,7 +60,9 @@ class StockDataProvider extends Component {
                     gainers: this.state.gainers,
                     losers: this.state.losers,
                     indexes: this.state.indexes,
-                    getGlobalData: this.getGlobalData
+                    searchList: this.state.searchList,
+                    getGroupData: this.getGroupData,
+                    getSearchList: this.getSearchList
                 }}>
                 {this.props.children}
             </StockDataContext.Provider>
