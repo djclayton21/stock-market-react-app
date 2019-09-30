@@ -14,6 +14,7 @@ import { withStockData } from './context/StockDataProvider';
 class App extends Component {
     componentDidMount(){
         this.props.getSearchList()
+        // this.props.getCurrentPrice()
     }
 
 

@@ -9,9 +9,9 @@ const MarketOverview = (props) => {
             ticker={index.ticker} 
             name={index.indexName} 
             price={index.price} 
-            change={index.changes}
-            changePercent={(100 * (index.changes / (index.price - index.changes))).toFixed(2)}
-            key={index.ticker} />))
+            key={index.ticker} 
+        />
+    ))
 
     return ( 
         <section className = 'market-overview'>

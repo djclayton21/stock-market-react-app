@@ -3,3 +3,7 @@
     margin: 1px;
     background: palegreen;
 }
+
+ul {
+    display: inline-block;
+}

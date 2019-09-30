@@ -2,14 +2,12 @@ import React from 'react'
 import './style.css'
 
 const SimpleStock = (props) => {
-    const {name, ticker, price, change, changePercent} = props
+    const {name, ticker, price} = props
     return (
         <div className= 'simple'>
-            <span>{name}</span>
             <span>{ticker}</span>
+            <span>{name}</span>
             <span>{price}</span>
-            <span>{change}</span>
-            <span>{changePercent}</span>
         </div>
     );
 }

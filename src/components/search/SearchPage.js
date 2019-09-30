@@ -1,6 +1,6 @@
 import React, { Component }from 'react';
 import './style.css';
-import SimpleList from '../assets/list/SimpleList.js';
+import SimpleStock from '../assets/simple-stock/SimpleStock.js';
 import { withStockData}  from '../../context/StockDataProvider.js'
 import ReactPaginate from 'react-paginate'
 
@@ -24,14 +24,25 @@ class SearchPage extends Component {
 
         //get matching stocks
         const searchResults = this.searchStocks(search);
-
+        
+        //add current price and calcs
+        // const fullResults = searchResults.forEach(stock => {
+        //     console.log(stock)
+        //     const match = this.props.currentPrices.find(price => (
+        //         price.symbol === stock.symbol
+        //     ))
+        //     console.log(match)
+            
+        // })
+        // console.dir(fullResults)
         //break array into pages
         const pagedSearchResults = {}
         const pageCount = Math.ceil(searchResults.length / resultsPerPage);
-        console.log(pageCount)
+        
         for (let i = 0; i < pageCount; i++){
             pagedSearchResults[i] = searchResults.slice(i * resultsPerPage, (i + 1) * resultsPerPage)
         }
+
         this.setState({
             searchResult: pagedSearchResults,
             resultCount: searchResults.length,
@@ -41,6 +52,7 @@ class SearchPage extends Component {
             pageIndex: 0
         })
     }
+
 
     handleChange = (event) => {
         const { name, value } = event.target
@@ -55,9 +67,9 @@ class SearchPage extends Component {
 
     searchStocks = (searchTerm) => {
         const { searchList } = this.props
-        const search = new RegExp(searchTerm, 'i')
+        const searchExp = new RegExp(searchTerm, 'i')
 
-        const searched = searchList.filter(stock => search.test(stock.symbol) || search.test(stock.name))
+        const searched = searchList.filter(stock => searchExp.test(stock.symbol) || searchExp.test(stock.name))
         
         return searched
     }
@@ -67,10 +79,18 @@ class SearchPage extends Component {
 
         //map current page
         const stocksToDisplay = searchResult[`${pageIndex}`]
+
         let mappedStocks = []
         
         if (resultCount > 0) {
-            mappedStocks = stocksToDisplay.map(stock => <div>{stock.symbol}</div>)
+            mappedStocks = stocksToDisplay.map(stock => (
+                <SimpleStock 
+                    name= {stock.name}
+                    ticker= {stock.symbol}
+                    price= {stock.price}
+                    key= {stock.symbol}
+                />
+            ))
         }
         
         return ( 

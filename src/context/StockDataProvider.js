@@ -10,7 +10,8 @@ class StockDataProvider extends Component {
             gainers: [],
             losers: [],
             indexes: [],
-            searchList: []
+            searchList: [],
+            // currentPrices: []
         }
     }
 
@@ -52,6 +53,17 @@ class StockDataProvider extends Component {
             })
             .catch(err =>console.log(err))
     }
+
+    // getCurrentPrice = () => {
+    //     //current price data
+    //     axios.get(`https://financialmodelingprep.com/api/v3/stock/real-time-price/`)
+    //         .then(response => {
+    //             this.setState({
+    //                 currentPrices: response.data.stockList
+    //             })
+    //         })
+    //         .catch(error => console.log(error))
+    // }
     
     render() { 
         return (
@@ -61,6 +73,7 @@ class StockDataProvider extends Component {
                     losers: this.state.losers,
                     indexes: this.state.indexes,
                     searchList: this.state.searchList,
+                    currentPrices: this.state.currentPrices,
                     getGroupData: this.getGroupData,
                     getSearchList: this.getSearchList
                 }}>
