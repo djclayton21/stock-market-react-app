@@ -53,9 +53,7 @@ import StockProfile from './StockPofile';
             <div className="stock-details">
                 <RatingHeader symbol = {symbol} rating = {this.state.rating}/>
                 <StockProfile symbol = {symbol} profile = {this.state.profile}/>
-                price info
                 chart
-                (news)
             </div>
         );
     }
