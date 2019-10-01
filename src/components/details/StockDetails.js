@@ -3,6 +3,7 @@ import axios from 'axios'
 import './style.css'
 import RatingHeader from './RatingHeader';
 import StockProfile from './StockPofile';
+import DetailChart from './chart/DetailChart';
 
 
  class StockDetails extends Component{
@@ -52,8 +53,8 @@ import StockProfile from './StockPofile';
         return ( 
             <div className="stock-details">
                 {this.state.rating && <RatingHeader symbol = {symbol} rating = {this.state.rating}/>}
-                <StockProfile symbol = {symbol} profile = {this.state.profile}/>
-                chart
+                <StockProfile symbol = {symbol} profile = {this.state.profile} />
+                {!!this.state.priceHistory.length && <DetailChart symbol = {symbol} priceHistory = {this.state.priceHistory} />}
             </div>
         );
     }
