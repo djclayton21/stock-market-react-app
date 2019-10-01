@@ -1,14 +1,17 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './style.css'
 
 const SimpleStock = (props) => {
-    const {name, ticker, price} = props
+    const {name, symbol, price} = props
     return (
-        <div className= 'simple'>
-            <span>{ticker}</span>
-            <span>{name}</span>
-            <span>{price}</span>
-        </div>
+        <Link to= {`/details/${symbol}`} >
+            <div className= 'simple'>
+                <span>{symbol}</span>
+                <span>{name}</span>
+                <span>{price}</span>
+            </div>
+        </Link>
     );
 }
  

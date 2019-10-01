@@ -3,3 +3,9 @@
     margin: 1px;
     background: lightpink;
 }
+
+.detail-rating {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2px;
+}

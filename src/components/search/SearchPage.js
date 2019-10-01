@@ -25,16 +25,6 @@ class SearchPage extends Component {
         //get matching stocks
         const searchResults = this.searchStocks(search);
         
-        //add current price and calcs
-        // const fullResults = searchResults.forEach(stock => {
-        //     console.log(stock)
-        //     const match = this.props.currentPrices.find(price => (
-        //         price.symbol === stock.symbol
-        //     ))
-        //     console.log(match)
-            
-        // })
-        // console.dir(fullResults)
         //break array into pages
         const pagedSearchResults = {}
         const pageCount = Math.ceil(searchResults.length / resultsPerPage);
@@ -82,11 +72,11 @@ class SearchPage extends Component {
 
         let mappedStocks = []
         
-        if (resultCount > 0) {
+        if (resultCount) {
             mappedStocks = stocksToDisplay.map(stock => (
                 <SimpleStock 
                     name= {stock.name}
-                    ticker= {stock.symbol}
+                    symbol= {stock.symbol}
                     price= {stock.price}
                     key= {stock.symbol}
                 />

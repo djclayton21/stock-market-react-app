@@ -3,13 +3,13 @@ import SimpleStock from '../assets/simple-stock/SimpleStock.js'
 
 const MarketOverview = (props) => {
     const { indexes } = props
-    
     const mappedIndexes = indexes.map(index => (
+        //change to more info component
         <SimpleStock 
-            ticker={index.ticker} 
+            symbol={index.ticker} 
             name={index.indexName} 
             price={index.price} 
-            key={index.ticker} 
+            key={`overview-${index.ticker}`} 
         />
     ))
 

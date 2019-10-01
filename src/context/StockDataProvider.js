@@ -53,17 +53,6 @@ class StockDataProvider extends Component {
             })
             .catch(err =>console.log(err))
     }
-
-    // getCurrentPrice = () => {
-    //     //current price data
-    //     axios.get(`https://financialmodelingprep.com/api/v3/stock/real-time-price/`)
-    //         .then(response => {
-    //             this.setState({
-    //                 currentPrices: response.data.stockList
-    //             })
-    //         })
-    //         .catch(error => console.log(error))
-    // }
     
     render() { 
         return (

@@ -14,7 +14,6 @@ import { withStockData } from './context/StockDataProvider';
 class App extends Component {
     componentDidMount(){
         this.props.getSearchList()
-        // this.props.getCurrentPrice()
     }
 
 
@@ -25,8 +24,9 @@ class App extends Component {
                 <Switch>
                     <Route exact path='/' component= {Home}/>
                     <Route path='/about' component={About}/>
+                    {/* add path to search for history */}
                     <Route path='/search' component={SearchPage}/>
-                    <Route path='/details/:ticker' render={rProps => <StockDetails {...rProps} />}/>
+                    <Route path='/details/:symbol' render={rProps => <StockDetails {...rProps} />}/>
                 </Switch>
                 <Footer />
             </div>
