@@ -51,7 +51,7 @@ import StockProfile from './StockPofile';
         const { symbol } = this.props.match.params
         return ( 
             <div className="stock-details">
-                <RatingHeader symbol = {symbol} rating = {this.state.rating}/>
+                {this.state.rating && <RatingHeader symbol = {symbol} rating = {this.state.rating}/>}
                 <StockProfile symbol = {symbol} profile = {this.state.profile}/>
                 chart
             </div>

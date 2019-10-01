@@ -22,7 +22,7 @@ const StockProfile = (props) => {
                 <div >
                     <div>{name}</div>
                     <div>${price} {change}</div>
-                    <a href= {website} target="_blank">{website}</a>
+                    <a href= {website} target="_blank" rel="noopener noreferrer">{website}</a>
                 </div>
                 <img src={imgUrl}  alt={name}/>
             </div>

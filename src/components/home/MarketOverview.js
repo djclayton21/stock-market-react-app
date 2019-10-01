@@ -1,14 +1,15 @@
 import React from 'react';
-import SimpleStock from '../assets/simple-stock/SimpleStock.js'
+import ExpandedStock from '../assets/expanded-stock/ExpandedStock.js'
 
 const MarketOverview = (props) => {
     const { indexes } = props
     const mappedIndexes = indexes.map(index => (
         //change to more info component
-        <SimpleStock 
+        <ExpandedStock 
             symbol={index.ticker} 
             name={index.indexName} 
             price={index.price} 
+            change={index.changes}
             key={`overview-${index.ticker}`} 
         />
     ))

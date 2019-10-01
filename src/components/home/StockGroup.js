@@ -1,13 +1,15 @@
 import React from 'react';
-import SimpleStock from '../assets/simple-stock/SimpleStock.js'
+import ExpandedStock from '../assets/expanded-stock/ExpandedStock.js';
 
 const StockGroup = (props) => {
     const { stocks } = props
     const mappedStocks = stocks.map(stock => (
-        <SimpleStock 
+        <ExpandedStock 
             symbol={stock.ticker} 
             name={stock.companyName} 
-            price={stock.price} 
+            price={stock.price}
+            change={stock.changes}
+            changePercent={stocks.changesPercentage}
             key={`${props.title}-${stock.ticker}`} />))
 
     return ( 
