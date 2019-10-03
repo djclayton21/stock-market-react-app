@@ -4,7 +4,9 @@ import ExpandedStock from '../assets/expanded-stock/ExpandedStock.js';
 const StockGroup = (props) => {
     const { stocks } = props
     const mappedStocks = stocks.map(stock => (
+        stocks.ticker &&
         <ExpandedStock 
+            canWatch='true'
             symbol={stock.ticker} 
             name={stock.companyName} 
             price={stock.price}

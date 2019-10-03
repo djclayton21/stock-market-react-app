@@ -11,7 +11,6 @@ class StockDataProvider extends Component {
             losers: [],
             indexes: [],
             searchList: [],
-            // currentPrices: []
         }
     }
 
@@ -20,7 +19,7 @@ class StockDataProvider extends Component {
         axios.get("https://financialmodelingprep.com/api/v3/majors-indexes")
             .then(res => {
                 this.setState({
-                    indexes: res.data.majorIndexesList.slice(0, 3)
+                    indexes: res.data.majorIndexesList.slice(0, 5)
                 })
             })
             .catch(err =>console.log(err))
@@ -29,7 +28,7 @@ class StockDataProvider extends Component {
         axios.get("https://financialmodelingprep.com/api/v3/stock/gainers")
             .then(res => {
                 this.setState({
-                    gainers: res.data.mostGainerStock.slice(0, 3)
+                    gainers: res.data.mostGainerStock.slice(0, 5)
                 })
             })
             .catch(err =>console.log(err))
@@ -37,7 +36,7 @@ class StockDataProvider extends Component {
         axios.get("https://financialmodelingprep.com/api/v3/stock/losers")
             .then(res => {
                 this.setState({
-                    losers: res.data.mostLoserStock.slice(0, 3)
+                    losers: res.data.mostLoserStock.slice(0, 5)
                 })
             })
             .catch(err =>console.log(err))
@@ -62,7 +61,6 @@ class StockDataProvider extends Component {
                     losers: this.state.losers,
                     indexes: this.state.indexes,
                     searchList: this.state.searchList,
-                    currentPrices: this.state.currentPrices,
                     getGroupData: this.getGroupData,
                     getSearchList: this.getSearchList
                 }}>

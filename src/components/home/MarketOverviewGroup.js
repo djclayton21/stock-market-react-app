@@ -1,11 +1,11 @@
 import React from 'react';
 import ExpandedStock from '../assets/expanded-stock/ExpandedStock.js'
 
-const MarketOverview = (props) => {
+const MarketOverviewGroup = (props) => {
     const { indexes } = props
     const mappedIndexes = indexes.map(index => (
-        //change to more info component
-        <ExpandedStock 
+        index.ticker &&
+        <ExpandedStock
             symbol={index.ticker} 
             name={index.indexName} 
             price={index.price} 
@@ -22,4 +22,4 @@ const MarketOverview = (props) => {
     );
 }
  
-export default MarketOverview;
+export default MarketOverviewGroup;

@@ -1,23 +1,33 @@
 import React, {Component} from 'react';
 import './style.css';
 import StockGroup from './StockGroup.js';
-import MarketOverview from './MarketOverview.js';
-import { withStockData } from '../../context/StockDataProvider'
+import MarketOverviewGroup from './MarketOverviewGroup.js';
+import { withStockData } from '../../context/StockDataProvider.js'
+import { withWatchList }    from '../../context/WatchListProvider.js'
+import WatchListGroup from './WatchListGroup';
 
 class Home extends Component {
     componentDidMount(){
         this.props.getGroupData()
     }
+    componentDidUpdate(prevProps){
+        if(prevProps.watchList !== this.props.watchList){
+            this.props.getWatchListData()
+        }
+    }
+
     render(){    
-        const {indexes, gainers, losers} = this.props
+        const {indexes, gainers, losers, watchListData} = this.props
+        
         return ( 
             <div className="home">
-                <MarketOverview indexes = {indexes}/>
-                <StockGroup title="Yesterday's Gainers and Losers" stocks= {[...gainers, ...losers]} />
-                <StockGroup title="Yesterday's Hottest" stocks= {losers} />
+                <MarketOverviewGroup indexes = {indexes}/>
+                <WatchListGroup watchListData = {watchListData} />
+                <StockGroup title="Biggest Gainers" stocks= {gainers} />
+                <StockGroup title="Biggest Losers" stocks= {losers} />
             </div> 
         );
     }
 }
 
-export default withStockData(Home);
+export default withWatchList(withStockData(Home));

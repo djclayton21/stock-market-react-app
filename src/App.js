@@ -8,12 +8,15 @@ import Home from './components/home/Home.js';
 import About from './components/about/About.js';
 import SearchPage from './components/search/SearchPage.js';
 import StockDetails from './components/details/StockDetails.js';
-import { withStockData } from './context/StockDataProvider';
+import { withStockData } from './context/StockDataProvider.js';
+import { withWatchList } from './context/WatchListProvider.js';
 
 
 class App extends Component {
     componentDidMount(){
+        window.addEventListener('beforeunload', this.props.saveWatchListToLocal)
         this.props.getSearchList()
+        this.props.getWatchListFromLocal()
     }
 
 
@@ -34,4 +37,4 @@ class App extends Component {
     }
 }
  
-export default withStockData(App);
+export default withWatchList(withStockData(App));

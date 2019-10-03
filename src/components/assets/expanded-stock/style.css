@@ -1,12 +1,17 @@
 .expanded {
-    display: grid;
-    grid-template-columns: 50% 1fr 1fr 1fr ;
+    display: flex;
+    justify-content: space-evenly;
+    /* grid-template-columns: 50% 1fr 1fr 1fr ;
     overflow: hidden;
     border: 1px solid red;
-    margin: 1px;
+    margin: 1px; */
 }
 
 span {
     padding: 0 2px;
     
+}
+
+button {
+    background: red;
 }
