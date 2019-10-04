@@ -8,7 +8,7 @@ const WatchToggle = (props) => {
             className = "watch-toggle" 
             type="checkbox" 
             checked= {props.watchList.includes(symbol)}
-            onClick= {() => props.handleWatchToggle(symbol)}
+            onChange= {() => props.handleWatchToggle(symbol)}
         />
     );
 }

@@ -15,10 +15,9 @@ const StockGroup = (props) => {
             key={`${props.title}-${stock.ticker}`} />))
 
     return ( 
-        <section className = 'stock-group'>
-            <div className = 'group-subtitle'>{props.title}</div>
+        <div className = 'stock-group'>
             {mappedStocks}
-        </section> 
+        </div> 
     );
 }
  

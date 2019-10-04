@@ -8,9 +8,13 @@ class StockDataProvider extends Component {
         super();
         this.state = { 
             gainers: [],
+            haveGainers: false,
             losers: [],
+            haveLosers: false,
             indexes: [],
+            haveIndexes: false,
             searchList: [],
+            haveSearchList: false,
         }
     }
 
@@ -19,7 +23,8 @@ class StockDataProvider extends Component {
         axios.get("https://financialmodelingprep.com/api/v3/majors-indexes")
             .then(res => {
                 this.setState({
-                    indexes: res.data.majorIndexesList.slice(0, 5)
+                    indexes: res.data.majorIndexesList.slice(0, 5),
+                    haveIndexes: true
                 })
             })
             .catch(err =>console.log(err))
@@ -28,7 +33,8 @@ class StockDataProvider extends Component {
         axios.get("https://financialmodelingprep.com/api/v3/stock/gainers")
             .then(res => {
                 this.setState({
-                    gainers: res.data.mostGainerStock.slice(0, 5)
+                    gainers: res.data.mostGainerStock.slice(0, 5),
+                    haveGainers: true
                 })
             })
             .catch(err =>console.log(err))
@@ -36,7 +42,8 @@ class StockDataProvider extends Component {
         axios.get("https://financialmodelingprep.com/api/v3/stock/losers")
             .then(res => {
                 this.setState({
-                    losers: res.data.mostLoserStock.slice(0, 5)
+                    losers: res.data.mostLoserStock.slice(0, 5),
+                    haveLosers: true
                 })
             })
             .catch(err =>console.log(err))
@@ -47,7 +54,8 @@ class StockDataProvider extends Component {
         axios.get("https://financialmodelingprep.com/api/v3/company/stock/list")
             .then(res => {
                 this.setState({
-                    searchList: res.data.symbolsList
+                    searchList: res.data.symbolsList,
+                    haveSearchList: true
                 })
             })
             .catch(err =>console.log(err))
