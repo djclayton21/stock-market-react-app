@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './style.css'
 import { withWatchList } from '../../context/WatchListProvider';
 import ExpandedStock from '../assets/expanded-stock/ExpandedStock';
+import Loading from '../assets/loading/Loading';
+import { watch } from 'fs';
 
 class WatchListPage extends Component {
     componentDidMount(){
@@ -13,7 +15,7 @@ class WatchListPage extends Component {
         }
     }
     render(){
-        const { watchListData } = this.props
+        const { watchListData, haveWatchListData, watchList } = this.props
         const mappedwatchList = watchListData.map(watchedStock => (
             watchedStock.symbol &&
             <ExpandedStock
@@ -26,9 +28,11 @@ class WatchListPage extends Component {
                 key={`watchlist-${watchedStock.symbol}`} 
             />
         ))
+        
         return ( 
             <div className = 'watch-list-page'>
-                {mappedwatchList}
+                {haveWatchListData || watchList.length === 0 ? mappedwatchList : <Loading />}
+                {watchList.length === 0 && <div className ='watch-list-help'>There are no files in your watch list Click the <span>$</span> to add a stock to your watch list!</div> }
             </div>
         );
     }

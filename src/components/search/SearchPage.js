@@ -3,6 +3,7 @@ import './style.css';
 import SimpleStock from '../assets/simple-stock/SimpleStock.js';
 import { withStockData}  from '../../context/StockDataProvider.js'
 import ReactPaginate from 'react-paginate'
+import Loading from '../assets/loading/Loading';
 
 class SearchPage extends Component {
     constructor(){
@@ -85,16 +86,21 @@ class SearchPage extends Component {
         
         return ( 
             <div className="search-page">
-                <form onSubmit= {this.handleSearch}>
-                    <input 
-                        type="text" 
-                        name='search' 
-                        value = {this.state.search} 
-                        onChange= {this.handleChange} 
-                        placeholder= 'search'
-                    />
-                    <button>Search</button>
-                </form>
+                {
+                    this.props.haveSearchList ? (
+                    <form onSubmit= {this.handleSearch}>
+                        <input 
+                            type="text" 
+                            name='search' 
+                            value = {this.state.search} 
+                            onChange= {this.handleChange} 
+                            placeholder= 'search'
+                        />
+                        <button>Search</button>
+                    </form>
+                    ): 
+                    <Loading />
+                }
 
                 {!!prevSearch.length && 
                     <div>

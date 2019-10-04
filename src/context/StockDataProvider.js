@@ -70,7 +70,11 @@ class StockDataProvider extends Component {
                     indexes: this.state.indexes,
                     searchList: this.state.searchList,
                     getGroupData: this.getGroupData,
-                    getSearchList: this.getSearchList
+                    getSearchList: this.getSearchList,
+                    haveGainers: this.state.haveGainers,
+                    haveLosers: this.state.haveLosers,
+                    haveIndexes: this.state.haveIndexes,
+                    haveSearchList: this.state.haveSearchList
                 }}>
                 {this.props.children}
             </StockDataContext.Provider>

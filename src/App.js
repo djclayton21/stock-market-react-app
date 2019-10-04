@@ -19,7 +19,7 @@ class App extends Component {
         this.props.getSearchList()
         this.props.getWatchListFromLocal()
     }
-
+    
 
     render() {
         return ( 

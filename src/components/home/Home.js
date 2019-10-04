@@ -20,21 +20,21 @@ class Home extends Component {
     }
 
     render(){    
-        const {indexes, haveIndexes, gainers, haveGainers, losers, haveLosers, watchListData} = this.props
+        const {indexes, haveIndexes, gainers, haveGainers, losers, haveLosers, watchListData, watchList, haveWatchListData} = this.props
         
         return ( 
             <div className="home">
                 <section className="list-container">Market Overview
-                    <MarketOverviewGroup indexes = {indexes}/>
+                    {haveIndexes ? <MarketOverviewGroup indexes = {indexes}/> : <Loading />}
                 </section>
                 <section className="list-container">Watch List
-                    <WatchListGroup watchListData = {watchListData} />
+                    {haveWatchListData || watchList.length === 0 ? <WatchListGroup watchListData = {watchListData} /> : <Loading />}
                 </section>
                 <section className="list-container">Biggest Gainers
                     {haveGainers ? <StockGroup stocks= {gainers} /> : <Loading />}
                 </section>
                 <section className="list-container">Biggest Losers
-                    <StockGroup stocks= {losers} />
+                    {haveLosers ? <StockGroup stocks= {losers} /> : <Loading />}
                 </section>
             </div> 
         );

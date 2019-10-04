@@ -8,6 +8,7 @@ class WatchListProvider extends Component {
         this.state = {
             watchList:[],
             watchListData:[],
+            haveWatchListData: false
         }
     }
     handleWatchToggle = (stockSymbol) => {
@@ -15,13 +16,23 @@ class WatchListProvider extends Component {
         isWatched ? this.removeStockFromWatchList(stockSymbol) : this.addStockToWatchList(stockSymbol);
     }
     addStockToWatchList = (stockSymbol) => {
-        this.setState(prevState => (
-            {watchList: [...prevState.watchList, stockSymbol]}
-        ))
+        axios.get(`https://financialmodelingprep.com/api/v3/company/profile/${stockSymbol}`)
+            .then(response => {
+                this.setState(prevState => ({
+                    watchList: [...prevState.watchList, stockSymbol],
+                    watchListData: [...prevState.watchListData, response.data]
+                }))
+            })
+            .catch(error => console.log(error))
+        
     }
     removeStockFromWatchList = (stockSymbol) => {
-        const updated = this.state.watchList.filter(entry => entry !== stockSymbol)
-        this.setState({watchList: [...updated]})
+        const updatedWatchList = this.state.watchList.filter(entry => entry !== stockSymbol)
+        const updatedWatchListData = this.state.watchListData.filter(entry => entry.symbol !== stockSymbol)
+        this.setState({
+            watchList: [...updatedWatchList],
+            watchListData: [...updatedWatchListData]
+        })
     }
     getWatchListFromLocal = () => {
         const JSONList = localStorage.getItem('watchList')
@@ -33,22 +44,26 @@ class WatchListProvider extends Component {
         }
     }
     getWatchListData = () => {
-        const watchListData = this.state.watchList.map(stockSymbol => {
+        const watchListDataHolder = this.state.watchList.map(stockSymbol => {
             return axios.get(`https://financialmodelingprep.com/api/v3/company/profile/${stockSymbol}`)
                 .then(response => response.data)
                 .catch(error => error)
         })
 
-        Promise.all(watchListData)
+        Promise.all(watchListDataHolder)
             .then(responses => {
-                this.setState({watchListData: responses})
+                console.log(responses)
+                this.setState({
+                    watchListData: responses,
+                    haveWatchListData: !!responses.length
+                })
             })
             .catch(error => console.log(error))
     }
     clearLocalandState = () => {
         localStorage.clear()
         this.setState({watchList:[], watchListData:[]})
-        console.log('tried to delete')
+        console.log('deleted local')
     }
     saveWatchListToLocal = () => {
         const JSONList = JSON.stringify(this.state.watchList)
@@ -66,7 +81,8 @@ class WatchListProvider extends Component {
                     saveWatchListToLocal: this.saveWatchListToLocal,
                     clearLocalandState: this.clearLocalandState,
                     removeStockFromWatchList: this.removeStockFromWatchList,
-                    handleWatchToggle: this.handleWatchToggle
+                    handleWatchToggle: this.handleWatchToggle,
+                    haveWatchListData: this.state.haveWatchListData
                 }}
             >
                 {this.props.children}
