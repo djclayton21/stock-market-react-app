@@ -1,21 +1,36 @@
 .navbar {
     display: flex;
     flex-direction: column;
-    align-items: center;    
+    align-items: center;  
+    background: #434d4d;
+}
+.navbar * {
+    color: #EBf5f5;
+
 }
 .navbar-title {
-    font-size: 1.2em;
-    padding: .2em 0;
+    font-size: 32px;
+    padding: 10px 0;
+    font-weight: 600;
+}
+.navbar-title i {
+    padding: 5px 5px 5px 0;
+    background: linear-gradient(60deg, #dc1212, #12c812);
+    background-clip: text;
+    color: transparent;
 }
 .navbar-links {
     width: 100%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     text-align: center;
+    transition: all 0.2s linear;
 }
-.navbar-links > a:hover {
-    background: grey;
+.navbar-links  a {
+    padding: 10px 0;
+    transition: all .5s ease
 }
-.navbar-links > a {
-    padding: .5em 0;
+
+.navbar-links a:hover, .navbar-links a:active {
+    background: #222727
 }

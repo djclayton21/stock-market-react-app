@@ -5,10 +5,13 @@
 html, body {
     margin: 0;
     padding: 0;
+    font-family: 'Ubuntu', sans-serif;
+    background: #222727;
+    color: #222727;
 }
-a, a:hover, a:visited, a:active {
+a, a:visited, a:hover,  a:active {
     text-decoration: none;
-    color: initial;
+    color: inherit;
 
 }
 /* colors */
@@ -19,9 +22,13 @@ a, a:hover, a:visited, a:active {
 /* white smoke #EBF5F5 */
 /* Lava #DC1212 */
 
+/* fonts */
+/* ubuntu, sans-serif */
+
+
 .app {
-    min-height: 100vh;
-    min-width: 100vw;
+    height: 100vh;
+    min-width: 301px;
     display: grid; 
     grid-template-rows: auto 1fr auto;
 }
