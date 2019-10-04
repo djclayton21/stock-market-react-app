@@ -1,23 +1,35 @@
 import React from 'react'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import './style.css'
-import { withWatchList } from '../../../context/WatchListProvider'
+import WatchToggle from '../watchToggle/WatchToggle';
 
 const ExpandedStock = (props) => {
-    const { symbol, name, price, change: changeAmount, canWatch = false, watchList } = props;
-    let isWatched = false;
-    isWatched = watchList.includes(symbol) 
+    const { symbol, name, price, change: changeAmount, canWatch = false } = props;
     const changePercent = props.changePercent ? props.changePercent:`(${(changeAmount / price * 100).toFixed(2)}%)`
     return (
-        <div className= 'expanded'>
-            {canWatch && !isWatched && <button onClick= {() => props.addStockToWatchList(symbol)}>Watch</button>}
-            {canWatch && isWatched && <button onClick = {() => props.removeStockFromWatchList(symbol)}>UnWatch</button>}
-            <span>{name}</span>
-            <span>{price}</span>
-            <span>{changeAmount}</span>
-            <span>{changePercent}</span>
-        </div>
+        <>
+            {canWatch ? (
+                <div className = 'expanded-link'>
+                    <Link to= {`/details/${symbol}`}>
+                        <div>{name}</div>
+                    </Link>
+                    <WatchToggle symbol= {symbol} />
+                    <span>{symbol}</span>
+                    <span>{price}</span>
+                    <span>{changeAmount}</span>
+                    <span>{changePercent}</span>
+                </div>
+            ):(
+                <div className = 'expanded-nolink'>
+                    <div>{name}</div>
+                    <span>{symbol}</span>
+                    <span>{price}</span>
+                    <span>{changeAmount}</span>
+                    <span>{changePercent}</span>
+                </div>
+            )}
+        </>
     );
 }
  
-export default withWatchList(ExpandedStock);
+export default ExpandedStock;

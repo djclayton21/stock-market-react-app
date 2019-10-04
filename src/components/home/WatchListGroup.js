@@ -3,8 +3,9 @@ import ExpandedStock from '../assets/expanded-stock/ExpandedStock.js'
 
 const WatchListGroup = (props) => {
     const { watchListData } = props
-    const mappedwatchList = watchListData.map(watchedStock => (
-        watchedStock.symbol &&
+    const shortWatchList = watchListData.slice(0, 5)
+    const mappedWatchList = shortWatchList.map(watchedStock => (
+        watchedStock.symbol && (
         <ExpandedStock
             canWatch='true'
             symbol={watchedStock.symbol} 
@@ -13,13 +14,17 @@ const WatchListGroup = (props) => {
             change={watchedStock.profile.changes}
             changePercent={watchedStock.profile.changesPercentage}
             key={`watchlist-${watchedStock.symbol}`} 
-        />
+        />)
     ))
 
     return ( 
-        <section className = 'market-overview'>
-            <div>WatchList</div>
-            {mappedwatchList}
+        <section className = 'watch-list-group'>
+            <div className = 'group-subtitle'>Watch List</div>
+            {mappedWatchList}
+            {mappedWatchList.length < 5 && (
+                <div className= 'watch-list-help'>
+                    Click the <span clasName = "dollaaaaa">$</span> to add a stock to your watch list!</div>
+            )}
         </section> 
     );
 }

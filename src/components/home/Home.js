@@ -9,6 +9,7 @@ import WatchListGroup from './WatchListGroup';
 class Home extends Component {
     componentDidMount(){
         this.props.getGroupData()
+        this.props.getWatchListData()
     }
     componentDidUpdate(prevProps){
         if(prevProps.watchList !== this.props.watchList){

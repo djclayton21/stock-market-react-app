@@ -1,5 +1,7 @@
 .about {
-    border: 2px solid blue;
-    margin: 1px;
-    background: palevioletred;
+    padding: 10px;
+    background: lightgray;
+}
+h3 {
+    text-align: center;
 }

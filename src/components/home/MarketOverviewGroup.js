@@ -16,7 +16,7 @@ const MarketOverviewGroup = (props) => {
 
     return ( 
         <section className = 'market-overview'>
-            <div>Market Overview</div>
+            <div className = 'group-subtitle'>Market Overview</div>
             {mappedIndexes}
         </section> 
     );

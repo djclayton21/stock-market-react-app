@@ -1,4 +1,21 @@
 .navbar {
-    border: 2px solid blue;
-    margin: 1px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+}
+.navbar-title {
+    font-size: 1.2em;
+    padding: .2em 0;
+}
+.navbar-links {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    text-align: center;
+}
+.navbar-links > a:hover {
+    background: grey;
+}
+.navbar-links > a {
+    padding: .5em 0;
 }

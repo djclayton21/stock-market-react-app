@@ -8,6 +8,7 @@ import Home from './components/home/Home.js';
 import About from './components/about/About.js';
 import SearchPage from './components/search/SearchPage.js';
 import StockDetails from './components/details/StockDetails.js';
+import WatchListPage from './components/watchlist/WatchListPage.js'
 import { withStockData } from './context/StockDataProvider.js';
 import { withWatchList } from './context/WatchListProvider.js';
 
@@ -25,10 +26,11 @@ class App extends Component {
             <div className="app">
                 <Navbar />
                 <Switch>
-                    <Route exact path='/' component= {Home}/>
-                    <Route path='/about' component={About}/>
-                    {/* add path to search for history */}
-                    <Route path='/search' component={SearchPage}/>
+                    <Route exact path='/' component= {Home} />
+                    <Route path='/about' component={About} />
+                    <Route path='/watch-list' component={WatchListPage} />
+                    {/* <Route path='/search/:searchTerm' component={SearchPage} /> */}
+                    <Route path='/search' component={SearchPage} />
                     <Route path='/details/:symbol' render={rProps => <StockDetails {...rProps} />}/>
                 </Switch>
                 <Footer />

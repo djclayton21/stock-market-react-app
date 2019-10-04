@@ -10,19 +10,18 @@ class WatchListProvider extends Component {
             watchListData:[],
         }
     }
+    handleWatchToggle = (stockSymbol) => {
+        const isWatched = this.state.watchList.includes(stockSymbol);
+        isWatched ? this.removeStockFromWatchList(stockSymbol) : this.addStockToWatchList(stockSymbol);
+    }
     addStockToWatchList = (stockSymbol) => {
-        if (!this.state.watchList.includes(stockSymbol)){
-            this.setState(prevState => (
-                {watchList: [...prevState.watchList, stockSymbol]}
-            ))
-        }
-        console.log(this.state.watchList)
+        this.setState(prevState => (
+            {watchList: [...prevState.watchList, stockSymbol]}
+        ))
     }
     removeStockFromWatchList = (stockSymbol) => {
-        if(this.state.watchList.includes(stockSymbol)){
-            const updated = this.state.watchList.filter(entry => entry !== stockSymbol)
-            this.setState({watchList: [...updated]})
-        }
+        const updated = this.state.watchList.filter(entry => entry !== stockSymbol)
+        this.setState({watchList: [...updated]})
     }
     getWatchListFromLocal = () => {
         const JSONList = localStorage.getItem('watchList')
@@ -66,7 +65,8 @@ class WatchListProvider extends Component {
                     getWatchListData: this.getWatchListData,
                     saveWatchListToLocal: this.saveWatchListToLocal,
                     clearLocalandState: this.clearLocalandState,
-                    removeStockFromWatchList: this.removeStockFromWatchList
+                    removeStockFromWatchList: this.removeStockFromWatchList,
+                    handleWatchToggle: this.handleWatchToggle
                 }}
             >
                 {this.props.children}
