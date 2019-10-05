@@ -23,7 +23,7 @@ class Home extends Component {
         const {indexes, haveIndexes, gainers, haveGainers, losers, haveLosers, watchListData, watchList, haveWatchListData} = this.props
         
         return ( 
-            <div className="home">
+            <main className="home">
                 <section className="list-container">Market Overview
                     {haveIndexes ? <MarketOverviewGroup indexes = {indexes}/> : <Loading />}
                 </section>
@@ -36,7 +36,7 @@ class Home extends Component {
                 <section className="list-container">Biggest Losers
                     {haveLosers ? <StockGroup stocks= {losers} /> : <Loading />}
                 </section>
-            </div> 
+            </main> 
         );
     }
 }

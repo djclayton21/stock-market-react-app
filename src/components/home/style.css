@@ -1,19 +1,19 @@
-.home {
-}
-
-.stock-group, .market-overview, .watch-list-group {
-    width: 100%;
-    background: #eee;
-    margin: 2px;
-    border-radius: 2px;  
-}
-
 .group-subtitle {
     text-align: center;
     padding: 2px;
 }
 .list-container {
-    min-height: 200px;
+    min-height: 282px;
     display: grid;
     grid-template-rows: auto 1fr;
+    background: #434d4d;
+    margin: 5px;
+    padding: 5px;
+    text-align: center;
+    color: #ebf5f5;
+    font-size: 18px;
+    border-radius: 5px;
+}
+.watch-list-help {
+    font-size: 14px;
 }

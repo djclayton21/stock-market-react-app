@@ -1,15 +1,22 @@
 import React from 'react';
+import './style.css'
 import { withWatchList } from '../../../context/WatchListProvider';
 
 const WatchToggle = (props) => {
     const { symbol } = props
+    const isChecked = props.watchList.includes(symbol)
     return (
-        <input 
-            className = "watch-toggle" 
-            type="checkbox" 
-            checked= {props.watchList.includes(symbol)}
-            onChange= {() => props.handleWatchToggle(symbol)}
-        />
+        <div className = 'watch-toggle'>
+            <label htmlFor={`checkbox-${symbol}`}className={`watch-myCheckbox ${isChecked && 'checked'}`}>$
+                <input 
+                    type="checkbox"
+                    id={`checkbox-${symbol}`}
+                    className="watch-checkbox"
+                    checked= {isChecked}
+                    onChange= {() => props.handleWatchToggle(symbol)}/>
+            </label>
+        </div>
+
     );
 }
  
