@@ -52,7 +52,6 @@ class WatchListProvider extends Component {
 
         Promise.all(watchListDataHolder)
             .then(responses => {
-                console.log(responses)
                 this.setState({
                     watchListData: responses,
                     haveWatchListData: !!responses.length

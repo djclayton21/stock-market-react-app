@@ -17,7 +17,6 @@
 }
 .expanded:hover {
     transform: scale(1.02);
-    background: #222727
 }
 
 .expanded-name {

@@ -15,7 +15,7 @@
 }
 .navbar-title i {
     padding: 5px 5px 5px 0;
-    background: linear-gradient(90deg, #EBf5f5, #12c812);
+    background: linear-gradient(90deg, #EBf5f5, #1b90d8);
     background-clip: text;
     color: transparent;
 }
@@ -33,6 +33,6 @@
     transition: all .5s ease
 }
 
-.navbar-links a:hover, .navbar-links a:active {
+.navbar-links a:hover, .navbar-links a:focus {
     background: #434D4D
 }

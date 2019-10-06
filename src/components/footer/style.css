@@ -18,13 +18,20 @@
     grid-template-columns: repeat(2, 1fr);
 }
 .footer-links a {
-    transition: all .5s cubic-bezier(0, 0.5, 0.5, 0.75);
+    transition: all .25s cubic-bezier(0, 0.5, 0.5, 0.75);
     padding: 10px;
     margin: 0 10px;
     font-size: 32px;
     border-radius: 50%;
+    
 }
 
-.footer-links a:hover, .footer-links a:active {
-    background: #434D4D;
+.footer-links a:hover, .footer-links a:focus {
+    color: #1b90d8;
+}
+.footer-links a > span{
+    position: absolute;
+    visibility: hidden;
+    height: 0;
+    width: 0;
 }

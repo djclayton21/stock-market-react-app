@@ -1,4 +1,5 @@
 import React from 'react';
+import WatchToggle from '../assets/watchToggle/WatchToggle';
 
 const StockProfile = (props) => {
     const { 
@@ -19,6 +20,7 @@ const StockProfile = (props) => {
     return (
         <div className="detail-profile">
             <div className="profile-basic">
+                {/* <WatchToggle symbol={} */}
                 <div >
                     <div>{name}</div>
                     <div>${price} {change}</div>

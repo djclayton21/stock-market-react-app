@@ -3,7 +3,6 @@ import './style.css'
 import { withWatchList } from '../../context/WatchListProvider';
 import ExpandedStock from '../assets/expanded-stock/ExpandedStock';
 import Loading from '../assets/loading/Loading';
-import { watch } from 'fs';
 
 class WatchListPage extends Component {
     componentDidMount(){

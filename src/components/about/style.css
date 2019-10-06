@@ -12,8 +12,8 @@ h3 {
     font-weight: 900;
     transition: all .5s cubic-bezier(0, 0.5, 0.5, 0.75);
 }
-.about-page a:hover {
-    color: #12C812;
+.about-page a:hover, .about-page a:focus {
+    color: #1b90d8;
 }
 .about-container {
     background: #434D4D;
@@ -21,4 +21,8 @@ h3 {
     margin: 5px;
     padding: 10px;
     border-radius: 5px;
+}
+.about-container ul {
+    display: block;
+    text-align: left;
 }

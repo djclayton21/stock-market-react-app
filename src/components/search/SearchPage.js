@@ -85,42 +85,46 @@ class SearchPage extends Component {
         }
         
         return ( 
-            <div className="search-page">
-                {
-                    this.props.haveSearchList ? (
-                    <form onSubmit= {this.handleSearch}>
-                        <input 
-                            type="text" 
-                            name='search' 
-                            value = {this.state.search} 
-                            onChange= {this.handleChange} 
-                            placeholder= 'search'
-                        />
-                        <button>Search</button>
-                    </form>
-                    ): 
+            <main className="search-page">
+                { this.props.haveSearchList ? (
+                    <section className="search-form">Search for Stocks
+                        <form onSubmit= {this.handleSearch} className= "search-box">
+                            <input 
+                                type="text" 
+                                name='search' 
+                                value = {this.state.search} 
+                                onChange= {this.handleChange} 
+                            />
+                            <button className="fas fa-search"></button>
+                        </form>
+                    </section>
+                ):( 
                     <Loading />
-                }
+                )}
 
-                {!!prevSearch.length && 
-                    <div>
-                        {`${resultCount} results for ${prevSearch}`}
-                    </div>
-                }
-
-                {!!resultCount &&  
-                    <>
-                        {mappedStocks}
-
-                        <ReactPaginate 
-                            pageCount= {pageCount}
-                            pageRangeDisplayed = {5}
-                            marginPagesDisplayed = {1}
-                            onPageChange= {this.handlePageClick}    
-                        />
-                    </>
-                }
-            </div>
+                <section className="search-results">
+                    {!!prevSearch.length && 
+                        <div className = "search-summary">
+                            {`${resultCount} results for '${prevSearch}'`}
+                        </div>
+                    }
+                    {!!resultCount &&  
+                        <>
+                            <ReactPaginate 
+                                pageCount= {pageCount}
+                                pageRangeDisplayed = {1}
+                                marginPagesDisplayed = {1}
+                                onPageChange= {this.handlePageClick}
+                                activeClassName= 'search-active'
+                                previousClassName= 'search-previous'    
+                            />
+                            <div className="search-results-container">
+                                {mappedStocks}
+                            </div>
+                        </>
+                    }
+                </section>
+            </main>
         )
     }     
 }
