@@ -54,8 +54,12 @@ import Loading from '../assets/loading/Loading.js'
         return ( 
             <main className="stock-details">
                 {this.state.rating && <RatingHeader symbol = {symbol} rating = {this.state.rating}/>}
-                {this.state.profile.price ? <StockProfile symbol = {symbol} profile = {this.state.profile} /> : <Loading />}
-                {this.state.priceHistory.length ? <DetailChart symbol = {symbol} priceHistory = {this.state.priceHistory} /> : <Loading />}
+                <section className="detail-profile">Profile
+                    {this.state.profile.price ? <StockProfile symbol = {symbol} profile = {this.state.profile} /> : <Loading />}
+                </section>
+                <div className="details-chart">Last Year
+                    {this.state.priceHistory.length ? <DetailChart symbol = {symbol} priceHistory = {this.state.priceHistory} /> : <Loading />}
+                </div>
             </main>
     );
     }

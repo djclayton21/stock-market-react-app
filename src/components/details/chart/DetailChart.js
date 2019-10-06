@@ -38,14 +38,12 @@ class DetailChart extends Component {
         return (
             <>
                 {lineData.length &&
-                    <div className="details-chart">Last Year
-                        <div className="chart-container">
-                            <VictoryChart scale= {{x: 'time', y:'linear'}} >
-                                <VictoryAxis style = {axisStyle} tickFormat= {(x) => (`${x.getMonth()}-${x.getFullYear()}`)}/>
-                                <VictoryAxis style = {axisStyle} dependentAxis tickFormat= {(x) => (`$${x}`)}/>
-                                <VictoryLine style= {lineStyle}data= {lineData} x= "date" y= "close" scale= {{x: 'time', y: 'linear'}}/>
-                            </VictoryChart>
-                        </div>
+                    <div className="chart-container">
+                        <VictoryChart scale= {{x: 'time', y:'linear'}} >
+                            <VictoryAxis style = {axisStyle} tickFormat= {(x) => (`${x.getMonth()}-${x.getFullYear()}`)}/>
+                            <VictoryAxis style = {axisStyle} dependentAxis tickFormat= {(x) => (`$${x}`)}/>
+                            <VictoryLine style= {lineStyle}data= {lineData} x= "date" y= "close" scale= {{x: 'time', y: 'linear'}}/>
+                        </VictoryChart>
                     </div>
                 }
             </>

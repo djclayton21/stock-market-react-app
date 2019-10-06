@@ -19,7 +19,7 @@ const StockProfile = (props) => {
         }
     } = props
     return (
-        <section className="detail-profile">Profile
+        <>
             <div className="profile-basic">
                 <div className='basic-text'>
                     <WatchToggle symbol={symbol} />
@@ -38,7 +38,7 @@ const StockProfile = (props) => {
                 <div>Market Cap: ${nFormatter(marketCap, 2)}</div>
                 <div>Average Volume: {nFormatter(volume, 2)} shares</div>
             </div>
-        </section>
+        </>
     );
 }
 
