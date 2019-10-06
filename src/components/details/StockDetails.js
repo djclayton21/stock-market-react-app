@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import './style.css'
-import RatingHeader from './RatingHeader';
-import StockProfile from './StockPofile';
-import DetailChart from './chart/DetailChart';
+import RatingHeader from './RatingHeader.js';
+import StockProfile from './StockPofile.js';
+import DetailChart from './chart/DetailChart.js';
+import Loading from '../assets/loading/Loading.js'
 
 
  class StockDetails extends Component{
@@ -53,8 +54,8 @@ import DetailChart from './chart/DetailChart';
         return ( 
             <main className="stock-details">
                 {this.state.rating && <RatingHeader symbol = {symbol} rating = {this.state.rating}/>}
-                <StockProfile symbol = {symbol} profile = {this.state.profile} />
-                {!!this.state.priceHistory.length && <DetailChart symbol = {symbol} priceHistory = {this.state.priceHistory} />}
+                {this.state.profile.price ? <StockProfile symbol = {symbol} profile = {this.state.profile} /> : <Loading />}
+                {this.state.priceHistory.length ? <DetailChart symbol = {symbol} priceHistory = {this.state.priceHistory} /> : <Loading />}
             </main>
     );
     }

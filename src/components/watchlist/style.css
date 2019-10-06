@@ -1,7 +1,5 @@
 .watch-list-page {
-    width: 100%;
     background: #222727;
-    padding: 5px;
     border-radius: 5px;
     display: flex;
     flex-direction: column;

@@ -3,6 +3,8 @@
     flex-direction: column;
     align-items: center;  
     background: #222727;
+    width: 100%;
+    padding: 5px;
 }
 .navbar * {
     color: #EBf5f5;

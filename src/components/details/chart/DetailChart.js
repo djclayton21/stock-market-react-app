@@ -17,16 +17,35 @@ class DetailChart extends Component {
         })
     }
     render() { 
+        const lineStyle = {
+            data: {
+                stroke: '#1b90d8'
+            }
+        }
+        const axisStyle = {
+            axis: {
+                stroke: '#EBF5F5'
+            },
+            ticks: {
+                stroke: '#EBF5F5'
+            },
+            tickLabels: {
+                stroke: '#EBF5F5',
+                fill: '#EBF5F5'   
+            }
+        }
         const { lineData } = this.state
         return (
             <>
                 {lineData.length &&
-                    <div className="detail-chart">
-                        <VictoryChart scale= {{x: 'time', y:'linear'}} >
-                            <VictoryAxis tickFormat= {(x) => (`${x.getMonth()}-${x.getFullYear()}`)}/>
-                            <VictoryAxis dependentAxis tickFormat= {(x) => (`$${x}`)}/>
-                            <VictoryLine data= {lineData} x= "date" y= "close" scale= {{x: 'time', y: 'linear'}}/>
-                        </VictoryChart>
+                    <div className="details-chart">Last Year
+                        <div className="chart-container">
+                            <VictoryChart scale= {{x: 'time', y:'linear'}} >
+                                <VictoryAxis style = {axisStyle} tickFormat= {(x) => (`${x.getMonth()}-${x.getFullYear()}`)}/>
+                                <VictoryAxis style = {axisStyle} dependentAxis tickFormat= {(x) => (`$${x}`)}/>
+                                <VictoryLine style= {lineStyle}data= {lineData} x= "date" y= "close" scale= {{x: 'time', y: 'linear'}}/>
+                            </VictoryChart>
+                        </div>
                     </div>
                 }
             </>

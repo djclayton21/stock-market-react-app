@@ -29,7 +29,13 @@ a, a:visited, a:hover,  a:active {
 
 .app {
     height: 100vh;
+    width: 100vw;
     min-width: 308px;
     display: grid; 
     grid-template-rows: auto 1fr auto;
+}
+
+main {
+    padding: 5px;
+    min-width: 100%;
 }

@@ -1,21 +1,118 @@
 .stock-details {
     background: #222727;
-}
-
-.detail-rating {
+    color: #EBF5F5;
     display: flex;
-    justify-content: space-between;
-    padding: 0 2px;
+    flex-direction: column;
+    align-items: center;
+}
+/* rating header */
+.detail-rating {
+    position: sticky;
+    width: 100%;
+    top:0;
+    padding: 5px;
+    background: #222727;
+    font-size: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) auto;
+    z-index: 2;
+}
+.detail-rating > * {
+    text-align: center;
 }
 
-.profile-basic {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: repeat(3 1fr);
+.rating-symbol {
+    font-size: 24px;
 }
-.profile-basic > img {
+.rating-dollas {
+    color: #12C812;
+}
+.rating-grade {
+    color: #1b90d8;
+}
+/* profile */
+.detail-profile {
+    width: 100%;
+    background:#434D4D;
+    padding: 5px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 18px;
+}
+/* base info section */
+.profile-basic {
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    background: #222727;
+    padding: 5px;
+    margin: 5px 0 0 0;
+    border-radius: 5px;
+    overflow:hidden;
+}
+.basic-name {
+    height: 2.4em;
+    min-width: 0;
+    overflow: auto; 
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+}
+.basic-text {
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+.basic-text .watch-toggle {
+    height: 2em;
+    float: left;
+}
+.basic-img {
+    max-height: 100%;
+    max-width: 75px;
     grid-column: 2/3;
-    grid-row: 1/4;
+    grid-row: 1/3;
+    border-radius: 5px;
+}
+.basic-website {
+    transition: all .5s cubic-bezier(0, 0.5, 0.5, 0.75);
+}
+.basic-website i {
+    font-size: 14px;
+    color: #1b90d8;
+}
+.basic-website:hover {
+    color: #1b90d8;
+}
+/* description */
+.profile-description {
+    background: #222727;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px 0;
+}
+/* details */
+.profile-details {
+    background: #222727;
+    padding: 5px;
+    border-radius: 5px;
     width: 100%;
 }
-
+/* chart */
+.details-chart {
+    background: #434D4D;
+    border-radius: 5px;
+    margin: 5px 0;
+    padding: 5px;
+    text-align: center;
+    width: 100%;
+    font-size: 18px;
+    min-height: 243px;
+}
+.chart-container {
+    background: #222727;
+    padding: 5px;
+    margin: 5px 0 0 0;
+    border-radius: 5px;
+}
