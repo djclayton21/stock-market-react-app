@@ -40,56 +40,54 @@
     background:#434D4D;
     padding: 5px;
     border-radius: 5px;
-    text-align: center;
-    /* display: flex;
+    display: flex;
     flex-direction: column;
-    align-items: center; */
+    align-items: center;
     font-size: 18px;
-    min-height: 372px;
+    min-height: 250px;
 }
 /* base info section */
 .profile-basic {
     width: 100%;
     display: grid;
-    grid-template-columns: minmax(125px, auto) auto;
+    grid-template-columns: minmax(0, 1fr) min-max(4.8em, auto);
     background: #222727;
     padding: 5px;
     margin: 5px 0 0 0;
     border-radius: 5px;
     overflow:hidden;
+    height: 5em;
 }
 
 .basic-name {
     max-height: 2.4em;
     overflow: auto;
 }
+.basic-price {
+    min-width: 210px;
+}
+.text-group {
+    display: flex;
+    align-items: center;
+}
 .basic-text {
     grid-column: 1/2;
-    grid-row: 1/2;
 }
 .basic-text .watch-toggle {
-    height: 2em;
     float: left;
 }
 .basic-img {
     max-height: 100%;
-    width: 100%;
+    max-width: 100%;
     grid-column: 2/3;
-    grid-row: 1/4;
-    border-radius: 5px;
+    border-radius: 2px;
+    margin: auto;
 }
+
 .basic-website {
     transition: all .5s cubic-bezier(0, 0.5, 0.5, 0.75);
-    margin: auto 0;
 }
-.basic-price {
-    margin: auto 0;
-    display: inline-block;
-}
-.basic-text {
-    margin: auto 0;
-    display: inline-block;
-}
+
 .basic-website i {
     font-size: 14px;
     color: #1b90d8;

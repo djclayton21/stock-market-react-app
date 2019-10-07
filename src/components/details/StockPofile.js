@@ -23,11 +23,13 @@ const StockProfile = (props) => {
         <>
             <div className="profile-basic">
                 <div className='basic-text'>
-                    <WatchToggle symbol={symbol} />
-                    <div className= 'basic-name'>{name}</div>
+                    <div className= 'text-group'>
+                        <WatchToggle symbol={symbol} />
+                        <div className= 'basic-name'>{name}</div>
+                    </div>
+                    <div className= 'basic-price'>Price: <span className = {priceColor}>${price} {change}</span></div>
+                    <a className = 'basic-website'href= {website} target="_blank" rel="noopener noreferrer">Company Website <i className="fas fa-link"></i></a>
                 </div>
-                <div className= 'basic-price'>Price: <span className = {priceColor}>${price} {change}</span></div>
-                <a className = 'basic-website'href= {website} target="_blank" rel="noopener noreferrer">Company Website <i className="fas fa-link"></i></a>
                 <img className = 'basic-img'src={imgUrl}  alt={name}/>
             </div>
             <div className="profile-description">
