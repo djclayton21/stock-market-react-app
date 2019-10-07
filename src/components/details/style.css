@@ -1,5 +1,8 @@
 .stock-details {
     max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
 }
 /* rating header */
 .detail-rating {
@@ -37,30 +40,28 @@
     background:#434D4D;
     padding: 5px;
     border-radius: 5px;
-    display: flex;
+    text-align: center;
+    /* display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; */
     font-size: 18px;
-    min-height: 250px;
+    min-height: 372px;
 }
 /* base info section */
 .profile-basic {
     width: 100%;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-columns: minmax(125px, auto) auto;
     background: #222727;
     padding: 5px;
     margin: 5px 0 0 0;
     border-radius: 5px;
     overflow:hidden;
 }
-.profile-basic > * {
-    width: fit-content;
-}
+
 .basic-name {
-    height: 2.4em;
-    min-width: 0;
-    overflow: auto; 
+    max-height: 2.4em;
+    overflow: auto;
 }
 .basic-text {
     grid-column: 1/2;
@@ -72,13 +73,22 @@
 }
 .basic-img {
     max-height: 100%;
-    max-width: 75px;
+    width: 100%;
     grid-column: 2/3;
-    grid-row: 1/3;
+    grid-row: 1/4;
     border-radius: 5px;
 }
 .basic-website {
     transition: all .5s cubic-bezier(0, 0.5, 0.5, 0.75);
+    margin: auto 0;
+}
+.basic-price {
+    margin: auto 0;
+    display: inline-block;
+}
+.basic-text {
+    margin: auto 0;
+    display: inline-block;
 }
 .basic-website i {
     font-size: 14px;

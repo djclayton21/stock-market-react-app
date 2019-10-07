@@ -1,7 +1,8 @@
 .loading {
     font-size: 72px;
     color: #12C812;
-    min-height: 200px;
+    margin: auto;
+    min-height: 282px;
     height: 100%;
     width: 100%;
     display: flex;
