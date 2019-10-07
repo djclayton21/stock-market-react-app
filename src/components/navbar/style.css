@@ -12,7 +12,7 @@
 }
 .navbar-title {
     font-size: 32px;
-    padding: 10px 0;
+    padding: 10px;
     font-weight: 600;
 }
 .navbar-title i {
@@ -37,4 +37,27 @@
 
 .navbar-links a:hover, .navbar-links a:focus {
     background: #434D4D
+}
+
+@media only screen and (min-width: 414px) {
+    .navbar-links a {
+        font-size: 18px;
+    }
+}
+@media only screen and (min-width: 620px) {
+    .navbar {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .navbar-links {
+        max-width: 385px;
+    }
+    .navbar-title {
+        font-size: 32px;
+    }
+}
+@media only screen and (min-width: 750px){
+    .navbar-title {
+        font-size: 48px;
+    }
 }

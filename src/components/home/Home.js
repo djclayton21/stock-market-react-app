@@ -29,6 +29,7 @@ class Home extends Component {
                 </section>
                 <section className="list-container">Watch List
                     {haveWatchListData || watchList.length === 0 ? <WatchListGroup watchListData = {watchListData} /> : <Loading />}
+                    {watchList.length < 5 && (<div className= 'watch-list-help'>Click the <span>$</span> to add a stock to your watch list!</div>)}
                 </section>
                 <section className="list-container">Biggest Gainers
                     {haveGainers ? <StockGroup stocks= {gainers} /> : <Loading />}

@@ -20,10 +20,6 @@ const WatchListGroup = (props) => {
     return ( 
         <div className = 'watch-list-group'>
             {mappedWatchList}
-            {mappedWatchList.length < 5 && (
-                <div className= 'watch-list-help'>
-                    Click the <span>$</span> to add a stock to your watch list!</div>
-            )}
         </div> 
     );
 }

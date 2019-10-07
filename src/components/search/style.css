@@ -1,14 +1,14 @@
 .search-page {
-    background: #222727;
-    font-size: 16px;
+    max-width: 800px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
 }
 .search-form {
     background: #434D4D;
     border-radius: 5px;
+    max-width: 414px;
+    margin: 0 auto;
     padding: 5px;
     color: #EBF5F5;
     text-align: center;
@@ -48,11 +48,13 @@
 .search-results {
     color: #EBF5F5;
     font-size: 16px;
-    text-align: center;
     width: 100%;
-    margin: 15px 0;
+    text-align: center;
+    margin: 10px auto;
 }
 ul {
+    max-width: 600px;
+    margin: 0 auto;
     margin-block-start: 0;
     margin-block-end: 0;
     padding-inline-start: 0;
@@ -60,8 +62,7 @@ ul {
     text-align: center;
     display: flex;
     justify-content: space-between;
-    margin: 5px;
-    padding: 5px;
+    padding: 10px 5px;
     list-style-type: none;
     width: 100%;
 }

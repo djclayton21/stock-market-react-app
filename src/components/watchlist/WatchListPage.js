@@ -31,8 +31,8 @@ class WatchListPage extends Component {
         return ( 
             <main className = 'watch-list-page'>
                 <div className="list-container">Watch List
-                    {haveWatchListData || watchList.length === 0 ? mappedwatchList : <Loading />}
-                    {watchList.length === 0 && <div className ='watch-list-help'>There are no files in your watch list Click the <span>$</span> to add a stock to your watch list!</div> }
+                    {haveWatchListData || watchList.length === 0 ? <div>{mappedwatchList}</div> : <Loading />}
+                    {watchList.length < 5 && <div className ='watch-list-help'>Click the <span>$</span> to add a stock to your watch list!</div> }
                 </div>
             </main>
         );

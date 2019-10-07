@@ -1,7 +1,5 @@
-.watch-list-page {
-    background: #222727;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+
+.watch-list-page .list-container > div{
+    max-height: 100%;
+    overflow: auto;
 }

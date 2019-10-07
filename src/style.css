@@ -33,9 +33,18 @@ a, a:visited, a:hover,  a:active {
     min-width: 308px;
     display: grid; 
     grid-template-rows: auto 1fr auto;
+    
 }
 
 main {
+    color: #EBF5F5;
     padding: 5px;
-    min-width: 100%;
+    width: 100%;
+    max-width: 414px;
+    display:grid;
+    grid-gap: 5px;
+    margin: auto;
 }
+
+
+

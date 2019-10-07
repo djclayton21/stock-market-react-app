@@ -8,7 +8,7 @@
     transition: all .5s cubic-bezier(0, 0.5, 0.5, 0.75);
 }
 .simple:hover {
-    transform: scale(1.02)
+    transform: scale(1.01)
 }
 .simple .watch-myCheckbox {
     font-size: 22px;
@@ -24,11 +24,11 @@
     grid-gap: 2px;
 }
 .simple-name {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    margin: auto 0px;
     overflow: hidden;
-    white-space: nowrap;
+    width: 100%;
     text-overflow: ellipsis;
+    white-space: nowrap;
     font-size: 14px;
 }
+

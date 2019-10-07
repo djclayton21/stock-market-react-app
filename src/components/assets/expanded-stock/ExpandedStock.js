@@ -13,7 +13,7 @@ const ExpandedStock = (props) => {
             {canWatch ? (
                 <div className = 'expanded'>
                     <WatchToggle symbol= {symbol} />
-                    <Link className= 'expanded-name'to= {`/details/${symbol}`}>
+                    <Link className= 'expanded-name' title= {name} to= {`/details/${symbol}`}>
                         <div>{name}</div>
                     </Link>
                     <div className="expanded-details">

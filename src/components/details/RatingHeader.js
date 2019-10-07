@@ -1,5 +1,4 @@
 import React from 'react';
-import WatchToggle from '../assets/watchToggle/WatchToggle';
 
 const RatingHeader = (props) => {
     const { symbol, rating: { score, rating, recommendation } } = props
