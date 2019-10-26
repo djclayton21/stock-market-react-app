@@ -9,4 +9,6 @@ https://www.financialmodellingprep.com/developer/docs/
 
 Victory charts
 https://formidable.com/open-source/victory/docs/
+
+React Paginate
 https://www.npmjs.com/package/react-paginate
